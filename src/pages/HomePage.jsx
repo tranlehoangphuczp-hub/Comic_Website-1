@@ -7,9 +7,9 @@ import MostPopular from "../components/home/MostPopular";
 
 export default function HomePage() {
   return (
-    <div className="max-w-6xl mx-auto min-h-screen px-4">
+    <div className="max-w-6xl mx-auto min-h-screen px-4 bg-gray-100 pb-4">
       {/* Top Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
         <div id="popular-today">
           <PopularToday />
         </div>
@@ -19,7 +19,7 @@ export default function HomePage() {
       </div>
 
       {/* Latest Releases */}
-      <div id="latest-releases">
+      <div id="latest-releases" className="mt-4">
         <LatestReleases />
       </div>
 

@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ComicCard = ({
   imageUrl,
   title,
   chapter,
   timeAgo = null,
-  onClick,
+  comicId = 1, // Default comic ID
   // Props cho tooltip
   author = '',
   status = '',
@@ -15,9 +16,9 @@ const ComicCard = ({
 }) => {
   return (
     <div className="relative group">
-      <div
-        className="relative rounded-md overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-[1.02] w-full aspect-[2/3] min-h-[180px] sm:min-h-[220px] md:min-h-[260px] bg-white border border-gray-200"
-        onClick={onClick}
+      <Link
+        to={`/comic/${comicId}`}
+        className="block relative rounded-md overflow-hidden cursor-pointer transition-transform duration-200 hover:scale-[1.02] w-full aspect-[2/3] min-h-[180px] sm:min-h-[220px] md:min-h-[260px] bg-white border border-gray-200"
       >
         <div className="relative w-full h-full rounded-md overflow-hidden">
           <img
@@ -48,7 +49,7 @@ const ComicCard = ({
             </div>
           </div>
         </div>
-      </div>
+      </Link>
 
       {/* Floating Tooltip - Compact version */}
       <div className="absolute left-full top-0 ml-3 w-64 bg-white border border-gray-200 rounded-lg shadow-xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[60] pointer-events-none

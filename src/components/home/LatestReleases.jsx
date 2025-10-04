@@ -171,7 +171,7 @@ const LatestReleases = () => {
   };
 
   return (
-    <div className="mt-8">
+    <div>
       <h2 className="text-2xl font-bold mb-4 text-purple-950">
         Latest Releases
       </h2>
@@ -203,7 +203,7 @@ const LatestReleases = () => {
               spaceBetween: 28,
             },
           }}
-          className="!pb-10 !overflow-visible"
+          className="!pb-8 !overflow-visible"
         >
           {comics.map((comic) => (
             <SwiperSlide key={comic.id} className="!overflow-visible">
@@ -217,7 +217,7 @@ const LatestReleases = () => {
                 genres={comic.genres}
                 rating={comic.rating}
                 description={comic.description}
-                onClick={() => handleComicClick(comic)}
+                comicId={comic.id}
               />
             </SwiperSlide>
           ))}

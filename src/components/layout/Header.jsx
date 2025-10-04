@@ -1,5 +1,6 @@
 import Container from "./Container";
 import { useState, useRef, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 
 const GENRE_ITEMS = [
   { label: "Action", href: "#" },
@@ -47,11 +48,13 @@ const Header = () => {
         <div className="flex justify-between items-center h-14">
           {/* Left: Logo + nav */}
           <div className="flex items-center gap-4">
-            <img src="./logo/comic.png" alt="Logo" className="h-20 w-auto" />
+            <Link to="/">
+              <img src="./logo/comic.png" alt="Logo" className="h-22 w-auto hover:opacity-80 transition-opacity" />
+            </Link>
 
             {/* Navigation */}
             <nav className="flex gap-4 text-white text-base font-medium">
-              <a href="/" className="hover:text-yellow-300 transition-colors"> Home </a>
+              <Link to="/" className="hover:text-yellow-300 transition-colors"> Home </Link>
 
               {/* Dropdown Genre */}
               <div className="relative" ref={genreRef}>
@@ -139,9 +142,12 @@ const SearchBox = () => (
 );
 
 const LoginButton = () => (
-  <button className="bg-yellow-300 text-purple-950 px-3 py-1 rounded font-medium hover:bg-yellow-200 transition-colors text-sm">
+  <Link
+    to="/login"
+    className="bg-yellow-300 text-purple-950 px-3 py-1 rounded font-medium hover:bg-yellow-200 transition-colors text-sm inline-block"
+  >
     Login
-  </button>
+  </Link>
 );
 
 export default Header;

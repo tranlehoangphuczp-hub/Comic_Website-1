@@ -28,10 +28,20 @@ const TrendingThisWeek = () => {
   ];
 
   return (
-    <div className="mt-8">
+    <div>
       <h2 className="text-2xl font-bold mb-4 text-purple-950">Trending This Week</h2>
       {trending.map((item) => (
-        <TrendingThisWeekCard key={item.id} {...item} />
+        <TrendingThisWeekCard
+          key={item.id}
+          id={item.id}
+          image={item.image}
+          status={item.status}
+          title={item.title}
+          description={item.description}
+          genre={item.genre}
+          rating={item.rating}
+          type={item.type}
+        />
       ))}
     </div>
   );

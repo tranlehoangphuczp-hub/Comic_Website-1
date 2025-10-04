@@ -1,6 +1,11 @@
-const TrendingThisWeekCard = ({ image, status, title, description, genre, rating, type }) => {
+import { Link } from 'react-router-dom';
+
+const TrendingThisWeekCard = ({ id, image, status, title, description, genre, rating, type }) => {
   return (
-    <div className="flex items-start bg-white rounded-lg shadow-md p-2 relative mb-4 cursor-pointer group transition-transform duration-200 hover:scale-[1.01]">
+    <Link
+      to={`/comic/${id}`}
+      className="flex items-start bg-white rounded-lg shadow-md p-2 relative mb-4 cursor-pointer group transition-transform duration-200 hover:scale-[1.01]"
+    >
       {/* Hình ảnh */}
       <div className="w-auto h-24 flex-shrink-0 overflow-hidden rounded-lg">
         <img src={image} alt={title} className="w-full h-full object-cover" />
@@ -42,7 +47,7 @@ const TrendingThisWeekCard = ({ image, status, title, description, genre, rating
       <div className="absolute top-3 right-3 bg-yellow-300 text-purple-950 font-bold px-2 py-1 rounded-l-full text-sm">
         {rating}
       </div>
-    </div>
+    </Link>
   )
 }
 

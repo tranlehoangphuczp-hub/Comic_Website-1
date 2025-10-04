@@ -3,6 +3,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Link } from 'react-router-dom';
 import Container from "../layout/Container";
 
 const PopularToday = () => {
@@ -44,7 +45,7 @@ const PopularToday = () => {
 
 
   return (
-    <div className="mt-8">
+    <div>
       <h2 className="text-2xl font-bold mb-4 text-purple-950">Popular Today</h2>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
@@ -57,7 +58,10 @@ const PopularToday = () => {
       >
         {banners.map((item) => (
           <SwiperSlide key={item.id}>
-            <div className="relative flex text-white rounded-lg overflow-hidden cursor-pointer group transition-transform duration-200 hover:scale-[1.01]">
+            <Link
+              to={`/comic/${item.id}`}
+              className="relative flex text-white rounded-lg overflow-hidden cursor-pointer group transition-transform duration-200 hover:scale-[1.01]"
+            >
               {/* Background ảnh mờ */}
               <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -112,7 +116,7 @@ const PopularToday = () => {
                   {item.rating}
                 </div>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
